@@ -9,7 +9,7 @@ class RandomSequence(object):
     def __init__(self,_values,_probabilities):
         self._values = _values
         self._probabilities = _probabilities
-        pass
+
     def next(self):
         # chooses a weighted random number from the first vector (values)
         # Weights are correponding floats in second vector (probabilities).
@@ -31,10 +31,7 @@ def main():
     Counter_111 = 0
     Counter_222 = 0
 
-    ################################## Sequences ##############################
-    ###########################################################################
     seq1 = RandomSequence([111,222],[0.1,0.9])
-    ###########################################################################
     
     print  str(repetitions) +" Individual Repetitions of .next()"
     for i in range(repetitions):
