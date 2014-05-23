@@ -14,7 +14,7 @@ class RandomSequence(object):
             total += i
             if total >= tick:
                 break
-            return(self._values[index-1])
+        return(self._values[index-1])
 
 
 def main():
