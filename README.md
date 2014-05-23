@@ -1,0 +1,4 @@
+rndseq
+======
+
+training exercise
