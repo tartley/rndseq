@@ -1,4 +1,4 @@
-import submission_fortest as sft
+import submission as sft
 import unittest
 
 class TestSubmission(unittest.TestCase):
