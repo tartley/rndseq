@@ -1,5 +1,6 @@
-import submission as sft
 import unittest
+
+import submission as sft
 
 class TestSubmission(unittest.TestCase):
 
@@ -18,3 +19,4 @@ class TestSubmission(unittest.TestCase):
             sft.RandomSequence([111,222,333],[0.5,0.5,0.5])
         with self.assertRaises(ArithmeticError):
             sft.RandomSequence([111,222,333],[0.3,0.3,0.3])
+

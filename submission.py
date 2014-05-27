@@ -1,6 +1,5 @@
-import random as rd
 import bisect
-import time
+import random as rd
 
 
 class RandomSequence(object):
