@@ -12,7 +12,12 @@ class RandomSequence(object):
         self.random_function = random_function
         self._values = _values
         self._probabilities = _probabilities
-        self.sum_p, self.total, LV, LP = [], 0, len(self._values), len(self._probabilities)
+
+        self.sum_p = []
+        self.total = 0
+        LV = len(self._values)
+        LP = len(self._probabilities)
+
         for i in self._probabilities:
             self.total += i
             self.sum_p.append(self.total)
