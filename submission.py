@@ -3,10 +3,12 @@ import random as rd
 
 class RandomSequence(object):
 
-    # Takes an object of two vectors
-    # First one is a sel of values
-    # Second is a set of probabilities
     def __init__(self, _values, _probabilities, RF = rd.random):
+        '''
+        Takes an object of two vectors
+        First one is a sel of values
+        Second is a set of probabilities
+        '''
         self.RF = RF
         self._values = _values
         self._probabilities = _probabilities
@@ -23,8 +25,10 @@ class RandomSequence(object):
             raise ArithmeticError("Probabilities don't add up to 1")
 
     def next(self):
-        # chooses a weighted random number from the first vector (values)
-        # Weights are correponding floats in second vector (probabilities).
+        '''
+        Chooses a weighted random number from the first vector (values)
+        Weights are correponding floats in second vector (probabilities).
+        '''
         out_value = bisect.bisect_left(self.sum_p, self.RF())
         return(self._values[out_value])
 
