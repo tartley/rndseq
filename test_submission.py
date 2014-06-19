@@ -24,6 +24,14 @@ class TestSubmission(unittest.TestCase):
         with self.assertRaises(AssertionError):
             sub.RandomSequence([111, 222, 333], [0.1, 0.9])
 
+    def test_RandomGen_raises_on_empty_values_or_probabilities(self):
+        with self.assertRaises(AssertionError):
+            sub.RandomSequence([], [1])
+        with self.assertRaises(AssertionError):
+            sub.RandomSequence([1], [])
+        with self.assertRaises(AssertionError):
+            sub.RandomSequence([], [])
+
     def test_next_num_output_depends_on_tick_position(self):
         gen = sub.RandomSequence([123, 456], [0.1, 0.9], lambda :0.0)
         self.assertEqual(gen.next(), 123)
