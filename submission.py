@@ -15,16 +15,14 @@ class RandomSequence(object):
 
         self.sum_p = []
         self.total = 0
-        LV = len(self._values)
-        LP = len(self._probabilities)
 
         for i in self._probabilities:
             self.total += i
             self.sum_p.append(self.total)
 
-        if LV == 0 or LP== 0:
+        if len(_values) == 0 or len(_probabilities) == 0:
             raise AssertionError("Values or/and Probabilities vector/s is/are empty")
-        if LV != LP:
+        if len(_values) != len(_probabilities):
             raise AssertionError("Values and Probabilities vectors' length don't match")
         if sum(self._probabilities) != 1.0:
             raise ArithmeticError("Probabilities don't add up to 1")
