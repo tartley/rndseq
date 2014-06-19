@@ -3,13 +3,13 @@ import random as rd
 
 class RandomSequence(object):
 
-    def __init__(self, _values, _probabilities, RF = rd.random):
+    def __init__(self, _values, _probabilities, random_function = rd.random):
         '''
         Takes an object of two vectors
         First one is a sel of values
         Second is a set of probabilities
         '''
-        self.RF = RF
+        self.random_function = random_function
         self._values = _values
         self._probabilities = _probabilities
         self.sum_p, self.total, LV, LP = [], 0, len(self._values), len(self._probabilities)
@@ -29,6 +29,6 @@ class RandomSequence(object):
         Chooses a weighted random number from the first vector (values)
         Weights are correponding floats in second vector (probabilities).
         '''
-        out_value = bisect.bisect_left(self.sum_p, self.RF())
+        out_value = bisect.bisect_left(self.sum_p, self.random_function())
         return(self._values[out_value])
 
