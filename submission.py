@@ -34,5 +34,5 @@ class RandomSequence(object):
         Weights are correponding floats in second vector (probabilities).
         '''
         out_value = bisect.bisect_left(self.sum_p, self.random_function())
-        return(self._values[out_value])
+        return self._values[out_value]
 
