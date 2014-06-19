@@ -1,6 +1,6 @@
 import unittest
 
-import submission as sub
+import pythonic_submission as sub
 
 class TestSubmission(unittest.TestCase):
 
@@ -10,9 +10,9 @@ class TestSubmission(unittest.TestCase):
 
     def test_next_num_returns_only_possible_output(self):
         gen = sub.RandomSequence([123], [1])
-        self.assertEqual(gen.next(), 123)
-        self.assertEqual(gen.next(), 123)
-        self.assertEqual(gen.next(), 123)
+        self.assertEqual(next(gen), 123)
+        self.assertEqual(next(gen), 123)
+        self.assertEqual(next(gen), 123)
 
     def test_RandomGen_raises_on_sum_probabilities_not_one(self):
         with self.assertRaises(ArithmeticError):
@@ -27,24 +27,22 @@ class TestSubmission(unittest.TestCase):
     def test_next_num_output_depends_on_tick_position(self):
 
         gen = sub.RandomSequence([123,456],[0.1,0.9],lambda :0.0)
-        self.assertEqual(gen.next(),123)
-        self.assertEqual(gen.next(),123)
-        self.assertEqual(gen.next(),123)
+        self.assertEqual(next(gen),123)
+        self.assertEqual(next(gen),123)
+        self.assertEqual(next(gen),123)
         gen = sub.RandomSequence([123,456],[0.1,0.9],lambda :0.08)
-        self.assertEqual(gen.next(),123)
-        self.assertEqual(gen.next(),123)
-        self.assertEqual(gen.next(),123)
+        self.assertEqual(next(gen),123)
+        self.assertEqual(next(gen),123)
+        self.assertEqual(next(gen),123)
         gen = sub.RandomSequence([123,456],[0.1,0.9],lambda :0.1)
-        self.assertEqual(gen.next(),123)
-        self.assertEqual(gen.next(),123)
-        self.assertEqual(gen.next(),123)
+        self.assertEqual(next(gen),123)
+        self.assertEqual(next(gen),123)
+        self.assertEqual(next(gen),123)
         gen = sub.RandomSequence([123,456],[0.1,0.9],lambda :0.8)
-        self.assertEqual(gen.next(),456)
-        self.assertEqual(gen.next(),456)
+        self.assertEqual(next(gen),456)
+        self.assertEqual(next(gen),456)
         self.assertEqual(gen.next(),456)
         gen = sub.RandomSequence([123,456],[0.1,0.9],lambda :1.0)
-        self.assertEqual(gen.next(),456)
-        self.assertEqual(gen.next(),456)
-        self.assertEqual(gen.next(),456)
-
-
+        self.assertEqual(next(gen),456)
+        self.assertEqual(next(gen),456)
+        self.assertEqual(next(gen),456)
