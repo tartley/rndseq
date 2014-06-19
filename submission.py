@@ -9,10 +9,10 @@ class RandomSequence(object):
         First one is a sel of values
         Second is a set of probabilities
         '''
-        if len(_values) != len(_probabilities):
-            raise AssertionError("Values and Probabilities are diff lengths")
-        if len(_probabilities) == 0:
-            raise AssertionError("Values or Probabilities are empty")
+        assert len(_values) == len(_probabilities), \
+            "Values and Probabilities are diff lengths"
+        assert len(_probabilities) != 0, \
+            "Values or Probabilities are empty"
         if sum(_probabilities) != 1.0:
             raise ArithmeticError("Probabilities don't add up to 1")
 
