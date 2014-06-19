@@ -9,23 +9,23 @@ class RandomSequence(object):
         First one is a sel of values
         Second is a set of probabilities
         '''
+        if len(_values) == 0 or len(_probabilities) == 0:
+            raise AssertionError("Values or/and Probabilities vector/s is/are empty")
+        if len(_values) != len(_probabilities):
+            raise AssertionError("Values and Probabilities vectors' length don't match")
+        if sum(_probabilities) != 1.0:
+            raise ArithmeticError("Probabilities don't add up to 1")
+
         self.random_function = random_function
         self._values = _values
         self._probabilities = _probabilities
 
         self.sum_p = []
         self.total = 0
-
         for i in self._probabilities:
             self.total += i
             self.sum_p.append(self.total)
 
-        if len(_values) == 0 or len(_probabilities) == 0:
-            raise AssertionError("Values or/and Probabilities vector/s is/are empty")
-        if len(_values) != len(_probabilities):
-            raise AssertionError("Values and Probabilities vectors' length don't match")
-        if sum(self._probabilities) != 1.0:
-            raise ArithmeticError("Probabilities don't add up to 1")
 
     def next(self):
         '''
