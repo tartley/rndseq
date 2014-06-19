@@ -20,10 +20,10 @@ class RandomSequence(object):
         self._values = _values
 
         self.sum_p = []
-        self.total = 0
+        total = 0
         for i in _probabilities:
-            self.total += i
-            self.sum_p.append(self.total)
+            total += i
+            self.sum_p.append(total)
 
 
     def next(self):
