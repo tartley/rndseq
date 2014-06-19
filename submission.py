@@ -1,6 +1,12 @@
 import bisect
 import random as rd
 
+def cumulative(sequence):
+    total = 0
+    for value in sequence:
+        total += value
+        yield total
+
 class RandomSequence(object):
 
     def __init__(self, _values, _probabilities, random_function = rd.random):
@@ -19,11 +25,7 @@ class RandomSequence(object):
         self.random_function = random_function
         self._values = _values
 
-        self.sum_p = []
-        total = 0
-        for i in _probabilities:
-            total += i
-            self.sum_p.append(total)
+        self.sum_p = list(cumulative(_probabilities))
 
 
     def next(self):

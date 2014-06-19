@@ -4,6 +4,12 @@ import submission as sub
 
 class TestSubmission(unittest.TestCase):
 
+    def test_cumulative_returns_correct_values(self):
+        self.assertEqual(list(sub.cumulative([1, 2, 3])),  [1, 3, 6])
+
+    def test_cumlative_handles_empty_sequence(self):
+        self.assertEqual(list(sub.cumulative([])),  [])
+
     def test_next_num_returns_only_possible_output(self):
         gen = sub.RandomSequence([123], [1])
         self.assertEqual(gen.next(), 123)
