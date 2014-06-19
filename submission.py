@@ -18,11 +18,10 @@ class RandomSequence(object):
 
         self.random_function = random_function
         self._values = _values
-        self._probabilities = _probabilities
 
         self.sum_p = []
         self.total = 0
-        for i in self._probabilities:
+        for i in _probabilities:
             self.total += i
             self.sum_p.append(self.total)
 
